@@ -9,6 +9,7 @@ public class GameManager : CustomBehaviour
     {
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
-        Debug.Log("Me inicialice viste que loco todo amigo nada que ver ajja");
+
+        Application.targetFrameRate = 90;
     }
 }
