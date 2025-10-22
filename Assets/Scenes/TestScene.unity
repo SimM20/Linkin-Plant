@@ -146,7 +146,7 @@ Transform:
   m_GameObject: {fileID: 6410022}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -164,6 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8931a07704af1214bbd2d7653a6afd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 8
+  jumpDuration: 0.25
 --- !u!65 &6410025
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -987,9 +989,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2060323495}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2984541778904007562, guid: 62de45d667f94594db5c6e05b8a8be87, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2117799793}
     - targetCorrespondingSourceObject: {fileID: 5190492797191843148, guid: 62de45d667f94594db5c6e05b8a8be87, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1514262896}
@@ -1831,38 +1830,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 2.220446e-16, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &2117799787 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2984541778904007562, guid: 62de45d667f94594db5c6e05b8a8be87, type: 3}
-  m_PrefabInstance: {fileID: 955536490}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &2117799793
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117799787}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
