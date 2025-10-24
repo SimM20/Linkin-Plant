@@ -1,17 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 public class Projectile : CustomBehaviour
 {
     [Header("Movement")]
-    [SerializeField] float speed = 60f;
-    [SerializeField] float maxLife = 4f;
+    [SerializeField] private float speed = 60f;
+    [SerializeField] private float maxLife = 4f;
 
     [Header("Collision")]
-    [SerializeField] LayerMask hitMask;
-    [SerializeField] string destroyWallTag = "DestroyWall";
+    [SerializeField] private LayerMask hitMask;
 
     float life;
     Vector3 prevPos;
@@ -33,12 +30,6 @@ public class Projectile : CustomBehaviour
         float dist = delta.magnitude;
         if (dist > 0f && Physics.Raycast(prevPos, delta.normalized, out RaycastHit hit, dist, hitMask, QueryTriggerInteraction.Ignore))
         {
-            if (hit.collider.CompareTag(destroyWallTag))
-            {
-                ReturnToPool();
-                return;
-            }
-
             ReturnToPool();
             return;
         }

@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class PoolSimple : CustomBehaviour
 {
-    [SerializeField] GameObject prefab;
-    [SerializeField] int initialSize = 20;
+    [SerializeField] private GameObject prefab;
+    [SerializeField] private int initialSize = 20;
 
-    readonly Queue<GameObject> pool = new Queue<GameObject>();
+    private Queue<GameObject> pool = new Queue<GameObject>();
 
     void Awake()
     {
