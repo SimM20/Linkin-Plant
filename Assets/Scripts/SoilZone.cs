@@ -2,78 +2,39 @@ using UnityEngine;
 
 public class SoilZone : CustomBehaviour
 {
-    [Header("Water Settings")]
+    [Header("Hydration Settings")]
+    [Range(0, 1)][SerializeField] private float moisture = 0f;
     [SerializeField] private float absorptionSpeed = 0.4f;
-    [SerializeField] private float wetRadius = 0.05f;
 
-    [Header("Visual Settings")]
+    [Header("References")]
     [SerializeField] private Renderer soilRenderer;
-    [SerializeField] private int textureResolution = 128;
-
-    private Texture2D wetMask;
     private MaterialPropertyBlock propBlock;
-    private Color[] pixels;
-    private int wetPixelCount = 0;
 
-    public bool IsFullyWatered => wetPixelCount >= pixels.Length * 0.95f;
+    [Header("Colors")]
+    [SerializeField] private Color dryColor = new Color(0.45f, 0.3f, 0.1f);   // dry
+    [SerializeField] private Color wetColor = new Color(0.2f, 0.15f, 0.08f);  // wet
 
     public override void CustomStart()
     {
         propBlock = new MaterialPropertyBlock();
-        wetMask = new Texture2D(textureResolution, textureResolution, TextureFormat.R8, false);
-        pixels = new Color[textureResolution * textureResolution];
-        for (int i = 0; i < pixels.Length; i++)
-            pixels[i] = Color.black;
-        wetMask.SetPixels(pixels);
-        wetMask.Apply();
-
-        soilRenderer.GetPropertyBlock(propBlock);
-        propBlock.SetTexture("_WetMask", wetMask);
-        soilRenderer.SetPropertyBlock(propBlock);
+        UpdateVisual();
     }
 
     public void AddWater(Vector3 hitPoint, float amount)
     {
-        Vector3 local = soilRenderer.transform.InverseTransformPoint(hitPoint);
-        Vector3 size = soilRenderer.bounds.size;
-        Vector2 uv = new Vector2(local.x / size.x + 0.5f, local.z / size.z + 0.5f);
+        moisture = Mathf.Clamp01(moisture + amount * absorptionSpeed);
+        UpdateVisual();
+    }
 
-        int centerX = Mathf.RoundToInt(uv.x * textureResolution);
-        int centerY = Mathf.RoundToInt(uv.y * textureResolution);
-        int radiusPixels = Mathf.RoundToInt(wetRadius * textureResolution);
+    private void UpdateVisual()
+    {
+        if (!soilRenderer) return;
 
-        for (int y = -radiusPixels; y <= radiusPixels; y++)
-        {
-            for (int x = -radiusPixels; x <= radiusPixels; x++)
-            {
-                int px = centerX + x;
-                int py = centerY + y;
-                if (px < 0 || px >= textureResolution || py < 0 || py >= textureResolution)
-                    continue;
+        soilRenderer.GetPropertyBlock(propBlock);
 
-                float dist = Mathf.Sqrt(x * x + y * y);
-                if (dist > radiusPixels)
-                    continue;
+        Color baseColor = Color.Lerp(dryColor, wetColor, moisture);
 
-                int index = py * textureResolution + px;
-                float current = pixels[index].r;
-                float target = Mathf.Clamp01(current + amount * absorptionSpeed);
-                if (target > current)
-                {
-                    pixels[index].r = target;
-                }
-            }
-        }
-
-        wetMask.SetPixels(pixels);
-        wetMask.Apply();
-
-        propBlock.SetTexture("_WetMask", wetMask);
+        propBlock.SetColor("_BaseColor", baseColor);
         soilRenderer.SetPropertyBlock(propBlock);
-
-        wetPixelCount = 0;
-        foreach (var c in pixels)
-            if (c.r > 0.8f)
-                wetPixelCount++;
     }
 }

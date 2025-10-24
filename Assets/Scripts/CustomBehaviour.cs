@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class CustomBehaviour : MonoBehaviour
 {
-    protected virtual void OnEnable() => GameLoop.Instance?.AddToMethodsList(this);
-    protected virtual void OnDisable() => GameLoop.Instance?.RemoveFromMethodsList(this);
+    public virtual void OnEnable() => GameLoop.Instance?.AddToMethodsList(this);
+    public virtual void OnDisable() => GameLoop.Instance?.RemoveFromMethodsList(this);
     public virtual void CustomStart() { }
     public virtual void CustomUpdate() { }
     public virtual void CustomFixedUpdate() { }
