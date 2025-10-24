@@ -10,9 +10,7 @@ public class JumpingPlatform : MonoBehaviour
     {
         var controller = other.GetComponent<CharacterController>();
         if (controller != null)
-        {
             StartCoroutine(ApplyImpulse(controller));
-        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -25,7 +23,6 @@ public class JumpingPlatform : MonoBehaviour
 
     private IEnumerator ApplyImpulse(CharacterController controller)
     {
-        Debug.Log("Hora de saltar mi rey!");
         float timer = 0f;
         while (timer < jumpDuration)
         {
