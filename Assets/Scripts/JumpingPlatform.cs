@@ -25,6 +25,7 @@ public class JumpingPlatform : MonoBehaviour
 
     private IEnumerator ApplyImpulse(CharacterController controller)
     {
+        Debug.Log("Hora de saltar mi rey!");
         float timer = 0f;
         while (timer < jumpDuration)
         {
