@@ -1,11 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Stream : CustomBehaviour
 {
     [SerializeField] private LineRenderer lineRenderer;
-    private Vector3 targetPos;
     private Vector3 currentEndPoint;
     private Vector3 velocity;
     private Vector3 lastPos;
@@ -35,9 +33,7 @@ public class Stream : CustomBehaviour
             if (Physics.Raycast(transform.position, direction, out hit, 2f))
             {
                 endPoint = hit.point;
-
-                if (hit.collider.TryGetComponent(out SoilZone soil))
-                    soil.AddWater(hit.point, Time.deltaTime * 0.5f);
+                HandleImpact(hit);
             }
             else endPoint = transform.position + direction * 2f;
 
@@ -48,6 +44,8 @@ public class Stream : CustomBehaviour
             yield return null;
         }
     }
+
+    protected virtual void HandleImpact(RaycastHit hit) { }
 
     public void EndPour() => StartCoroutine(EndPouring());
 

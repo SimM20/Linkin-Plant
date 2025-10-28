@@ -2,22 +2,72 @@ using UnityEngine;
 
 public class SoilZone : CustomBehaviour
 {
+    [Header("Fill Settings")]
+    [SerializeField] private float maxFillAmount = 10f;
+    [SerializeField] private float maxScaleY = 1f;
+    [SerializeField] private float soilBottomY = 0f;
+    [SerializeField] private float soilTopY = 1.5f;
+    [SerializeField] private float maxScaleZ = 1f;
+
     [Header("Hydration Settings")]
     [Range(0, 1)][SerializeField] private float moisture = 0f;
     [SerializeField] private float absorptionSpeed = 0.4f;
 
     [Header("References")]
     [SerializeField] private Renderer soilRenderer;
-    private MaterialPropertyBlock propBlock;
 
     [Header("Colors")]
     [SerializeField] private Color dryColor = new Color(0.45f, 0.3f, 0.1f);   // dry
     [SerializeField] private Color wetColor = new Color(0.2f, 0.15f, 0.08f);  // wet
 
+    private MaterialPropertyBlock propBlock;
+    private Transform soilPlaneTransform;
+    private float currentFillAmount = 0f;
+    private float initialScaleX;
+
     public override void CustomStart()
     {
         propBlock = new MaterialPropertyBlock();
+
+        soilPlaneTransform = transform;
+
+        initialScaleX = soilPlaneTransform.localScale.x;
+
+        soilPlaneTransform.localPosition = new Vector3(
+            soilPlaneTransform.localPosition.x,
+            soilBottomY,
+            soilPlaneTransform.localPosition.z
+        );
+
+        soilPlaneTransform.localScale = new Vector3(
+            initialScaleX,
+            soilPlaneTransform.localScale.y,
+            0f
+        );
+
         UpdateVisual();
+    }
+
+    public void FillSoil(float amount)
+    {
+        if (currentFillAmount >= maxFillAmount) return;
+
+        currentFillAmount = Mathf.Min(currentFillAmount + amount, maxFillAmount);
+        float fillRatio = currentFillAmount / maxFillAmount;
+
+        float newY = Mathf.Lerp(soilBottomY, soilTopY, fillRatio);
+        soilPlaneTransform.localPosition = new Vector3(
+            soilPlaneTransform.localPosition.x,
+            newY,
+            soilPlaneTransform.localPosition.z
+        );
+
+        float newZScale = Mathf.Lerp(0f, maxScaleZ, fillRatio);
+        soilPlaneTransform.localScale = new Vector3(
+            initialScaleX,
+            soilPlaneTransform.localScale.y,
+            newZScale
+        );
     }
 
     public void AddWater(Vector3 hitPoint, float amount)

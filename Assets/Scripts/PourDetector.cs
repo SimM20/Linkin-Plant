@@ -9,6 +9,7 @@ public class PourDetector : CustomBehaviour
 
     private bool isPouring = false;
     private GameObject currentStream;
+    private bool canPour = true;
 
     public override void CustomUpdate()
     {
@@ -20,9 +21,9 @@ public class PourDetector : CustomBehaviour
             else EndPouring();
         }
     }
-
     private void StartPouring() 
     {
+        if (!canPour) return;
         currentStream = Instantiate(streamPrefab, origin.position, Quaternion.identity, transform);
         currentStream?.GetComponent<Stream>().Begin();
     }
@@ -32,4 +33,6 @@ public class PourDetector : CustomBehaviour
         currentStream = null;
     }
     private float CalculatePourAngle() { return Vector3.Angle(transform.up, Vector3.up); }
+
+    public void TogglePour() => canPour = !canPour;
 }

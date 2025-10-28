@@ -992,6 +992,7 @@ GameObject:
   - component: {fileID: 1574934185}
   - component: {fileID: 1574934184}
   - component: {fileID: 1574934183}
+  - component: {fileID: 1574934187}
   m_Layer: 0
   m_Name: DirtBag
   m_TagString: Untagged
@@ -1030,7 +1031,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pullTab: {fileID: 1654226042}
-  soilSpawnPoint: {fileID: 441962402}
 --- !u!114 &1574934184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,6 +1232,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.42299438, y: 0.7787005, z: 0.3626948}
   m_Center: {x: -1.0248992, y: 0.3840856, z: -0.0012615845}
+--- !u!114 &1574934187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574934181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ef764bc92c30d4781fce532cf7eaef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pourThreshold: 45
+  origin: {fileID: 441962402}
+  streamPrefab: {fileID: 5238570228697279498, guid: 2b62b3c992f0f664082cce8f0e7de65a, type: 3}
 --- !u!1 &1629902508 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 533eac8d6c266e447b5485e2bfbedb58, type: 3}

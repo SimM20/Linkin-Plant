@@ -4854,10 +4854,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5238570228697279503}
-  - component: {fileID: 5238570228697279501}
   - component: {fileID: 5238570228697279500}
+  - component: {fileID: 8075282229404753915}
   m_Layer: 0
-  m_Name: Stream
+  m_Name: SoilStream
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4879,19 +4879,6 @@ Transform:
   - {fileID: 269008120}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5238570228697279501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5238570228697279498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453c4b705b7039744bcedc2b20dcf6aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 5238570228697279500}
 --- !u!120 &5238570228697279500
 LineRenderer:
   serializedVersion: 2
@@ -4915,7 +4902,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 995911e6ae325144696f98258c14f3f2, type: 2}
+  - {fileID: 2100000, guid: 7c4a17869c3f931499f3b1b8690cdced, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5007,3 +4994,16 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 0
+--- !u!114 &8075282229404753915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238570228697279498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321463047bfa9604f98b0cd39be5802f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 5238570228697279500}
