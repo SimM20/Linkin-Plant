@@ -9,12 +9,10 @@ public static class DayManager
     public static void AdvanceDay()
     {
         currentDay++;
-        Debug.Log($"Nuevo día: {currentDay}");
     }
 
     public static void ResetDays()
     {
         currentDay = 1;
-        Debug.Log("Días reiniciados a 1.");
     }
 }
