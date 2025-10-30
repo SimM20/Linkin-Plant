@@ -4,10 +4,10 @@ public class SoilZone : CustomBehaviour
 {
     [Header("Fill Settings")]
     [SerializeField] private float maxFillAmount = 10f;
-    [SerializeField] private float maxScaleY = 1f;
+    [SerializeField] private float maxScaleY = .1f;
     [SerializeField] private float soilBottomY = 0f;
     [SerializeField] private float soilTopY = 1.5f;
-    [SerializeField] private float maxScaleZ = 1f;
+    [SerializeField] private float maxScaleZ = .1f;
 
     [Header("Hydration Settings")]
     [Range(0, 1)][SerializeField] private float moisture = 0f;
@@ -24,6 +24,9 @@ public class SoilZone : CustomBehaviour
     private Transform soilPlaneTransform;
     private float currentFillAmount = 0f;
     private float initialScaleX;
+
+    public float CurrentFill => currentFillAmount;
+    public float CurrentMoisture => moisture;
 
     public override void CustomStart()
     {
