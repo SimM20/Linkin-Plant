@@ -4,10 +4,8 @@ public class SoilZone : CustomBehaviour
 {
     [Header("Fill Settings")]
     [SerializeField] private float maxFillAmount = 10f;
-    [SerializeField] private float maxScaleY = .1f;
-    [SerializeField] private float soilBottomY = 0f;
-    [SerializeField] private float soilTopY = 1.5f;
-    [SerializeField] private float maxScaleZ = .1f;
+    [SerializeField] private float soilBottomY = -0.5f;
+    [SerializeField] private float soilTopY = 0f;
 
     [Header("Hydration Settings")]
     [Range(0, 1)][SerializeField] private float moisture = 0f;
@@ -23,7 +21,7 @@ public class SoilZone : CustomBehaviour
     private MaterialPropertyBlock propBlock;
     private Transform soilPlaneTransform;
     private float currentFillAmount = 0f;
-    private float initialScaleX;
+    private bool isFilled = false;
 
     public float CurrentFill => currentFillAmount;
     public float CurrentMoisture => moisture;
@@ -34,18 +32,10 @@ public class SoilZone : CustomBehaviour
 
         soilPlaneTransform = transform;
 
-        initialScaleX = soilPlaneTransform.localScale.x;
-
         soilPlaneTransform.localPosition = new Vector3(
             soilPlaneTransform.localPosition.x,
             soilBottomY,
             soilPlaneTransform.localPosition.z
-        );
-
-        soilPlaneTransform.localScale = new Vector3(
-            initialScaleX,
-            soilPlaneTransform.localScale.y,
-            0f
         );
 
         UpdateVisual();
@@ -53,7 +43,12 @@ public class SoilZone : CustomBehaviour
 
     public void FillSoil(float amount)
     {
-        if (currentFillAmount >= maxFillAmount) return;
+        if (currentFillAmount >= maxFillAmount)
+        {
+            isFilled = true;
+            Debug.Log("Pot is filled with soilzone");
+            return;
+        }
 
         currentFillAmount = Mathf.Min(currentFillAmount + amount, maxFillAmount);
         float fillRatio = currentFillAmount / maxFillAmount;
@@ -64,17 +59,12 @@ public class SoilZone : CustomBehaviour
             newY,
             soilPlaneTransform.localPosition.z
         );
-
-        float newZScale = Mathf.Lerp(0f, maxScaleZ, fillRatio);
-        soilPlaneTransform.localScale = new Vector3(
-            initialScaleX,
-            soilPlaneTransform.localScale.y,
-            newZScale
-        );
     }
 
     public void AddWater(Vector3 hitPoint, float amount)
     {
+        if (!isFilled) return;
+        Debug.Log("Adding water");
         moisture = Mathf.Clamp01(moisture + amount * absorptionSpeed);
         UpdateVisual();
     }
