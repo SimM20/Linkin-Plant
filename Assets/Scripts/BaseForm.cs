@@ -15,7 +15,11 @@ public class BaseForm : CustomBehaviour
         foreach (Slider slider in sliderAnswers) { answers.Add(slider.value); }
 
         if (answers.Count == 5)
+        {
             SendAnalytics(answers[0], answers[1], answers[2], answers[3], answers[4]);
+            GameManager.Instance.HandleFirstFormCompleted();
+            gameObject.SetActive(false);
+        }
 
         else return;
     }
