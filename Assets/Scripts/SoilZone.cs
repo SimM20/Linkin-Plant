@@ -13,6 +13,7 @@ public class SoilZone : CustomBehaviour
 
     [Header("References")]
     [SerializeField] private Renderer soilRenderer;
+    [SerializeField] private BoxCollider coll;
 
     [Header("Colors")]
     [SerializeField] private Color dryColor = new Color(0.45f, 0.3f, 0.1f);   // dry
@@ -30,6 +31,8 @@ public class SoilZone : CustomBehaviour
     {
         propBlock = new MaterialPropertyBlock();
 
+        coll.enabled = false;
+
         soilPlaneTransform = transform;
 
         soilPlaneTransform.localPosition = new Vector3(
@@ -46,7 +49,7 @@ public class SoilZone : CustomBehaviour
         if (currentFillAmount >= maxFillAmount)
         {
             isFilled = true;
-            Debug.Log("Pot is filled with soilzone");
+            coll.enabled = true;
             return;
         }
 
@@ -64,7 +67,6 @@ public class SoilZone : CustomBehaviour
     public void AddWater(Vector3 hitPoint, float amount)
     {
         if (!isFilled) return;
-        Debug.Log("Adding water");
         moisture = Mathf.Clamp01(moisture + amount * absorptionSpeed);
         UpdateVisual();
     }

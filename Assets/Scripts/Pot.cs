@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Pot : CustomBehaviour
 {
     [SerializeField] private SoilZone soilPlaneZone;
+
+    private bool hasSeed = false;
     public void ReciveSoil(Vector3 hitPoint, float amount)
     {
+        if (!hasSeed) return;
         if (soilPlaneZone == null) return;
 
         if (!soilPlaneZone.gameObject.activeSelf)
@@ -14,4 +15,6 @@ public class Pot : CustomBehaviour
 
         soilPlaneZone.FillSoil(amount);
     }
+
+    public void HandleSeedPlanted() => hasSeed = true;
 }

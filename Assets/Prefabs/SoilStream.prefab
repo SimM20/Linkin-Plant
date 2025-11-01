@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 269008120}
   - component: {fileID: 269008122}
   - component: {fileID: 269008121}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4856,7 +4856,7 @@ GameObject:
   - component: {fileID: 5238570228697279503}
   - component: {fileID: 5238570228697279500}
   - component: {fileID: 8075282229404753915}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SoilStream
   m_TagString: Untagged
   m_Icon: {fileID: 0}
