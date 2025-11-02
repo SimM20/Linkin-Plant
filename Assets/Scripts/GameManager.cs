@@ -53,7 +53,7 @@ public class GameManager : CustomBehaviour
     {
         if (bed == null) return;
 
-        if (pots.Count == 0)
+        if (pots.Count <= 0)
         {
             bed.SetReadyForSleep(false);
             return;

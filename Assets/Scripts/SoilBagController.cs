@@ -5,7 +5,7 @@ public class SoilBagController : CustomBehaviour
     [SerializeField] private GameObject pullTab;
     private PourDetector pourDetector;
 
-    public bool IsOpen { get; private set; } = false;
+    public bool IsOpen { get; private set; } = true;
 
     public override void CustomStart()
     {
