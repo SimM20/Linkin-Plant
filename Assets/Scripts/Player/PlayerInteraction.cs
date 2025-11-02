@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerInteraction : MonoBehaviour
+public class PlayerInteraction : CustomBehaviour
 {
 
 }

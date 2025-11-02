@@ -1,7 +1,10 @@
 using UnityEngine;
+using System;
 
 public class SoilZone : CustomBehaviour
 {
+    public event Action OnWatered;
+
     [Header("Fill Settings")]
     [SerializeField] private float maxFillAmount = 10f;
     [SerializeField] private float soilBottomY = -0.5f;
@@ -10,6 +13,7 @@ public class SoilZone : CustomBehaviour
     [Header("Hydration Settings")]
     [Range(0, 1)][SerializeField] private float moisture = 0f;
     [SerializeField] private float absorptionSpeed = 0.4f;
+    [SerializeField] private float wateredThreshold = 1f;
 
     [Header("References")]
     [SerializeField] private Renderer soilRenderer;
@@ -67,7 +71,19 @@ public class SoilZone : CustomBehaviour
     public void AddWater(Vector3 hitPoint, float amount)
     {
         if (!isFilled) return;
+
+        bool wasWateredBefore = moisture >= wateredThreshold;
+
         moisture = Mathf.Clamp01(moisture + amount * absorptionSpeed);
+        UpdateVisual();
+
+        if (!wasWateredBefore && moisture >= wateredThreshold)
+            OnWatered?.Invoke();
+    }
+
+    public void ResetMoisture()
+    {
+        moisture = 0f;
         UpdateVisual();
     }
 

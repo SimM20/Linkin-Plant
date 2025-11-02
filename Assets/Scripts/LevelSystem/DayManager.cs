@@ -6,13 +6,7 @@ public static class DayManager
 
     public static int CurrentDay => currentDay;
 
-    public static void AdvanceDay()
-    {
-        currentDay++;
-    }
+    public static void AdvanceDay() => currentDay++;
 
-    public static void ResetDays()
-    {
-        currentDay = 1;
-    }
+    public static void ResetDays() => currentDay = 1;
 }

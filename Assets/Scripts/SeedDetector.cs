@@ -8,7 +8,7 @@ public class SeedDetector : CustomBehaviour
         if (seed != null)
         {
             //Podemos hacer otro checkeo para ver el tipo de semilla en caso de que sea necesario
-            GetComponentInParent<Pot>().HandleSeedPlanted();
+            GetComponentInParent<PotController>().HandleSeedPlanted();
 
             Destroy(other.gameObject);
             Destroy(gameObject);

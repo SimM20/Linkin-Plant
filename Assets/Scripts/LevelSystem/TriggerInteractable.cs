@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-public class TriggerInteractable : MonoBehaviour
+public class TriggerInteractable : CustomBehaviour
 {
     [Header("Referencias")]
     [SerializeField] private Canvas dayCanvas;
@@ -10,14 +10,15 @@ public class TriggerInteractable : MonoBehaviour
 
     [Header("Configuración")]
     [SerializeField] private float displayTime = 3f; 
-    [SerializeField] private float fadeTime = 0.5f;   
-    [SerializeField] private int dayNumber = 1;
+    [SerializeField] private float fadeTime = 0.5f;
     [SerializeField] private bool oneTimeUse = false;
 
     private bool isRunning = false;
     private bool alreadyTriggered = false;
 
-    private void Start()
+    private bool isReadyForSleep = false;
+
+    public override void CustomStart()
     {
         if (dayCanvas != null)
             dayCanvas.enabled = false;
@@ -28,10 +29,11 @@ public class TriggerInteractable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isRunning || (oneTimeUse && alreadyTriggered))
-            return;
-        if (other.GetComponent<PlayerInteraction>() != null)
-            StartCoroutine(ShowDaySequence());
+        if (isRunning || (oneTimeUse && alreadyTriggered)) return;
+
+        if (other.GetComponent<PlayerInteraction>() == null) return;
+
+        if (isReadyForSleep) StartCoroutine(ShowDaySequence());
     }
 
     private IEnumerator ShowDaySequence()
@@ -49,12 +51,10 @@ public class TriggerInteractable : MonoBehaviour
             yield return StartCoroutine(FadeText(dayText, 0, 1, fadeTime));
         }
 
-
         yield return new WaitForSeconds(displayTime);
 
-        PlantManager.Instance?.AdvanceAllPlants();
+        GameManager.Instance?.AdvanceDay();
 
-        dayNumber++;
         if (dayText != null)
             yield return StartCoroutine(FadeText(dayText, 1, 0, fadeTime));
 
@@ -62,7 +62,6 @@ public class TriggerInteractable : MonoBehaviour
             dayCanvas.enabled = false;
 
         isRunning = false;
-        
     }
 
     private IEnumerator FadeText(TextMeshProUGUI text, float startAlpha, float endAlpha, float duration)
@@ -79,4 +78,6 @@ public class TriggerInteractable : MonoBehaviour
 
         text.alpha = endAlpha;
     }
+
+    public void SetReadyForSleep(bool isReady) => isReadyForSleep = isReady;
 }

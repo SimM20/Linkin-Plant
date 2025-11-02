@@ -3364,6 +3364,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6409931333481116759, guid: cd35a8980ab47744ca7279c12e13eb55, type: 3}
+      propertyPath: coll
+      value: 
+      objectReference: {fileID: 31791169}
+    - target: {fileID: 6409931333481116759, guid: cd35a8980ab47744ca7279c12e13eb55, type: 3}
       propertyPath: moisture
       value: 0
       objectReference: {fileID: 0}
