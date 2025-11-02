@@ -4,68 +4,74 @@ using UnityEngine;
 
 public class PotController : CustomBehaviour
 {
-    public PotModel Model { private set; get; }
-    public PotView View { private set; get; }
+    [SerializeField] private PotModel model;
+    [SerializeField] private PotView view;
+
+    public PotModel Model => model;
+    public PotView View => view;
 
     [Header("External references")]
     [SerializeField] private SoilZone soilZone;
+    [SerializeField] private SeedDetector seedDetector;
 
     public override void CustomStart()
     {
-        Model = GetComponent<PotModel>();
-        View = GetComponent<PotView>();
-
-        Model.Initialize(View.GetMaxStages(), soilZone);
-
-        GameManager.Instance?.RegisterPlant(this);
+        model.Initialize(view.GetMaxStages(), soilZone);
 
         soilZone.OnWatered += HandleWatered;
+
+        seedDetector.OnSeedPlanted += HandleSeedPlanted;
 
         GameManager.Instance?.CheckPlantReadiness();
     }
 
     private void OnDestroy()
     {
-        GameManager.Instance?.UnregisterPlant(this);
         soilZone.OnWatered -= HandleWatered;
+        seedDetector.OnSeedPlanted -= HandleSeedPlanted;
     }
 
     public void ProcessNewDay()
     {
-        if (Model.IsReadyToGrow())
-        {
-            Model.AdvanceStage();
+        model.AdvanceStage();
+        view.UpdateStageVisuals(model.CurrentStage);
+        if (model.Soil != null)
+            model.Soil.ResetMoisture();
+    }
 
-            View.UpdateStageVisuals(Model.CurrentStage);
-
-            if (Model.Soil != null)
-                Model.Soil.ResetMoisture();
-        }
-        Model.ResetDay();
+    public void SetNewDayTask(DailyTaskConfig task)
+    {
+        model.SetNewTask(task);
+        Debug.Log("Setteo de tareas listo");
     }
 
     public void ReciveSoil(Vector3 hitPoint, float amount)
     {
-        if (Model.CanReceiveSoil())
+        if (model.CanReceiveSoil())
         {
-            if (Model.Soil == null) return;
+            if (model.Soil == null) return;
 
-            if (!Model.Soil.gameObject.activeSelf)
-                Model.Soil.gameObject.SetActive(true);
+            if (!model.Soil.gameObject.activeSelf)
+                model.Soil.gameObject.SetActive(true);
 
-            Model.Soil.FillSoil(amount);
+            model.Soil.FillSoil(amount);
         }
     }
 
     public void HandleSeedPlanted()
     {
-        Model.PlantSeed();
+        model.PlantSeed();
         GameManager.Instance?.CheckPlantReadiness();
     }
 
     public void HandleWatered()
     {
-        Model.SetWatered();
+        model.SetWatered();
+        GameManager.Instance?.CheckPlantReadiness();
+    }
+    public void HandleInsecticideApplied()
+    {
+        model.SetInsecticide();
         GameManager.Instance?.CheckPlantReadiness();
     }
 

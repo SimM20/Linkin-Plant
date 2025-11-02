@@ -211,8 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxFillAmount: 1.5
-  soilBottomY: 0
-  soilTopY: 0.5
+  soilBottomY: -0.5
+  soilTopY: 0
   moisture: 0
   absorptionSpeed: 1
   wateredThreshold: 1
@@ -237,7 +237,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.77386785, y: 0.12396249, z: 0.77386785}
   m_Center: {x: 0, y: 0.49700916, z: 0}
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 2096108804090618763}
   - component: {fileID: 9007930590209074546}
   - component: {fileID: 7316813922142278655}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pot_Pumpkin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,6 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soilZone: {fileID: 7241575277154953906}
+  seedDetector: {fileID: 5105526289989631792}
 --- !u!114 &9007930590209074546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,9 +531,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantStages:
   - {fileID: 0}
-  - {fileID: 7712961934432862958}
-  - {fileID: 7827859788420043506}
   - {fileID: 151359573616978946}
+  - {fileID: 7827859788420043506}
+  - {fileID: 7712961934432862958}
   plantCanvas: {fileID: 1019923872664686912}
 --- !u!1 &6871408607556350039
 GameObject:

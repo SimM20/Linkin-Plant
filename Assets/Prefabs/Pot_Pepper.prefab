@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 6110175238322381791}
   - component: {fileID: 7153411211277091564}
   - component: {fileID: 3284533560545941161}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pot_Pepper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,6 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soilZone: {fileID: 6457033008788930462}
+  seedDetector: {fileID: 8823529372942431499}
 --- !u!114 &7153411211277091564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,9 +475,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantStages:
   - {fileID: 0}
+  - {fileID: 8609291009158148094}
   - {fileID: 371429123719670211}
   - {fileID: 8715407486919973904}
-  - {fileID: 8609291009158148094}
   plantCanvas: {fileID: 2586978131950446483}
 --- !u!1 &5947348360396792269
 GameObject:
@@ -581,8 +582,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxFillAmount: 1.5
-  soilBottomY: 0
-  soilTopY: 0.5
+  soilBottomY: -0.5
+  soilTopY: 0
   moisture: 0
   absorptionSpeed: 1
   wateredThreshold: 1
@@ -607,7 +608,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.77386785, y: 0.12396249, z: 0.77386785}
   m_Center: {x: 0, y: 0.49700916, z: 0}

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using OpenCover.Framework.Model;
 
 public class SoilZone : CustomBehaviour
 {
@@ -98,4 +99,14 @@ public class SoilZone : CustomBehaviour
         propBlock.SetColor("_BaseColor", baseColor);
         soilRenderer.SetPropertyBlock(propBlock);
     }
+
+    //Debug Methods
+    [ContextMenu("FillComplete")]
+    public void FillSoilComplete()
+    {
+        FillSoil(maxFillAmount);
+        isFilled = true;
+        coll.enabled = true;
+    }
+
 }

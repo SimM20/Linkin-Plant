@@ -5,9 +5,10 @@ public class GameManager : CustomBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    private List<PotController> pots = new List<PotController>();
+    [SerializeField] private List<PotController> pots = new List<PotController>();
 
     [SerializeField] private TriggerInteractable bed;
+    [SerializeField] private DailyTaskConfig[] dailyTasks;
 
     public override void CustomStart()
     {
@@ -20,6 +21,10 @@ public class GameManager : CustomBehaviour
         GameAnalyticsHandler.StartNewGameSession();
 
         UIManager.Instance?.ShowFirstForm();
+
+        SetNewDayTask(DayManager.CurrentDay);
+
+        Debug.LogWarning($"Day selected: {DayManager.CurrentDay}");
 
         CheckPlantReadiness();
     }
@@ -46,7 +51,22 @@ public class GameManager : CustomBehaviour
                 pot.ProcessNewDay();
         }
 
+        if (DayManager.CurrentDay < dailyTasks.Length)
+            SetNewDayTask(DayManager.CurrentDay);
+
+        else
+            UIManager.Instance?.ShowSecondForm();
+
         CheckPlantReadiness();
+    }
+
+    private void SetNewDayTask(int dayIndex)
+    {
+        if (dayIndex >= dailyTasks.Length) return;
+
+        DailyTaskConfig newTask = dailyTasks[dayIndex];
+
+        foreach (var pot in pots) { pot.SetNewDayTask(newTask); }
     }
 
     public void CheckPlantReadiness()
@@ -67,6 +87,7 @@ public class GameManager : CustomBehaviour
                 return;
             }
         }
+        Debug.LogWarning("Day completed");
         bed.SetReadyForSleep(true);
     }
 }
