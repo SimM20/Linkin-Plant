@@ -20,7 +20,6 @@ public class UIManager : CustomBehaviour
     {
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public void ShowFirstForm() 

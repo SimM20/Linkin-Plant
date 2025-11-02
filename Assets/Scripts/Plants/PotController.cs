@@ -18,9 +18,17 @@ public class PotController : CustomBehaviour
         Model.Initialize(View.GetMaxStages(), soilZone);
 
         GameManager.Instance?.RegisterPlant(this);
+
+        soilZone.OnWatered += HandleWatered;
+
+        GameManager.Instance?.CheckPlantReadiness();
     }
 
-    private void OnDestroy() => GameManager.Instance?.UnregisterPlant(this);
+    private void OnDestroy()
+    {
+        GameManager.Instance?.UnregisterPlant(this);
+        soilZone.OnWatered -= HandleWatered;
+    }
 
     public void ProcessNewDay()
     {
@@ -49,9 +57,17 @@ public class PotController : CustomBehaviour
         }
     }
 
-    public void HandleSeedPlanted() => Model.PlantSeed();
+    public void HandleSeedPlanted()
+    {
+        Model.PlantSeed();
+        GameManager.Instance?.CheckPlantReadiness();
+    }
 
-    public void HandleWatered() => Model.SetWatered();
+    public void HandleWatered()
+    {
+        Model.SetWatered();
+        GameManager.Instance?.CheckPlantReadiness();
+    }
 
     public void HandlePlayerInteraction(bool isEntering) => View.ShowCanvas(isEntering);
 }

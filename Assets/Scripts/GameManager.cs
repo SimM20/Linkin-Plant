@@ -67,7 +67,6 @@ public class GameManager : CustomBehaviour
                 return;
             }
         }
-
         bed.SetReadyForSleep(true);
     }
 }
