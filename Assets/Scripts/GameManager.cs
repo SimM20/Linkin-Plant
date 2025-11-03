@@ -5,6 +5,8 @@ public class GameManager : CustomBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [SerializeField] private GameObject[] doors;
+
     [SerializeField] private List<PotController> pots = new List<PotController>();
 
     [SerializeField] private TriggerInteractable bed;
@@ -24,12 +26,13 @@ public class GameManager : CustomBehaviour
 
         SetNewDayTask(DayManager.CurrentDay);
 
-        Debug.LogWarning($"Day selected: {DayManager.CurrentDay}");
-
         CheckPlantReadiness();
     }
 
-    public void HandleFirstFormCompleted() => Debug.Log("Se completo el primer form"); //Que vamos a hacer cuando se complete el primer form?
+    public void Initialize() 
+    {
+        foreach (GameObject door in doors) { Destroy(door); }
+    }
 
     public void RegisterPlant(PotController pot)
     {

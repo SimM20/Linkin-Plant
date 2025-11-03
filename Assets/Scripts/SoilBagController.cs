@@ -11,6 +11,9 @@ public class SoilBagController : CustomBehaviour
     {
         pourDetector = GetComponent<PourDetector>();
         pourDetector.TogglePour(); //Default = true, Toggle to false
+
+        //Debug only
+        OpenBag();
     }
 
     [ContextMenu("Open bag")]

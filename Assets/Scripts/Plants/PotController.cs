@@ -42,7 +42,6 @@ public class PotController : CustomBehaviour
     public void SetNewDayTask(DailyTaskConfig task)
     {
         model.SetNewTask(task);
-        Debug.Log("Setteo de tareas listo");
     }
 
     public void ReciveSoil(Vector3 hitPoint, float amount)

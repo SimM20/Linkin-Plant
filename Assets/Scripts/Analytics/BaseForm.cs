@@ -17,7 +17,6 @@ public class BaseForm : CustomBehaviour
         if (answers.Count == 5)
         {
             SendAnalytics(answers[0], answers[1], answers[2], answers[3], answers[4]);
-            GameManager.Instance.HandleFirstFormCompleted();
             gameObject.SetActive(false);
         }
 
