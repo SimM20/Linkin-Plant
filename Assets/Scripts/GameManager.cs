@@ -48,17 +48,22 @@ public class GameManager : CustomBehaviour
 
     public void AdvanceDay()
     {
+        int newDayIndex = DayManager.CurrentDay;
+
+        if (newDayIndex >= dailyTasks.Length)
+        {
+            UIManager.Instance?.ShowSecondForm();
+            CheckPlantReadiness();
+            return;
+        }
+
+        DailyTaskConfig newTask = dailyTasks[newDayIndex];
+
         foreach (var pot in pots)
         {
             if (pot != null)
-                pot.ProcessNewDay();
+                pot.ProcessNewDay(newTask);
         }
-
-        if (DayManager.CurrentDay < dailyTasks.Length)
-            SetNewDayTask(DayManager.CurrentDay);
-
-        else
-            UIManager.Instance?.ShowSecondForm();
 
         CheckPlantReadiness();
     }
@@ -68,8 +73,10 @@ public class GameManager : CustomBehaviour
         if (dayIndex >= dailyTasks.Length) return;
 
         DailyTaskConfig newTask = dailyTasks[dayIndex];
-
-        foreach (var pot in pots) { pot.SetNewDayTask(newTask); }
+        foreach (var pot in pots)
+        {
+            pot.SetNewDayTask(newTask);
+        }
     }
 
     public void CheckPlantReadiness()

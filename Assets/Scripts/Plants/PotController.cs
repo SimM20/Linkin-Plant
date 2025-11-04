@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PotController : CustomBehaviour
@@ -31,17 +29,29 @@ public class PotController : CustomBehaviour
         seedDetector.OnSeedPlanted -= HandleSeedPlanted;
     }
 
-    public void ProcessNewDay()
+    public void ProcessNewDay(DailyTaskConfig newTask)
     {
-        model.AdvanceStage();
-        view.UpdateStageVisuals(model.CurrentStage);
+        if (model.IsReadyToGrow())
+        {
+            model.AdvanceStage();
+            view.UpdateStageVisuals(model.CurrentStage);
+        }
+
         if (model.Soil != null)
             model.Soil.ResetMoisture();
+
+        SetNewDayTask(newTask);
     }
 
     public void SetNewDayTask(DailyTaskConfig task)
     {
         model.SetNewTask(task);
+
+        if (view != null)
+        {
+            view.ShowBugs(task.RequiresInsecticide);
+            view.ShowWeeds(task.RequiresPruning);
+        }
     }
 
     public void ReciveSoil(Vector3 hitPoint, float amount)
@@ -59,18 +69,37 @@ public class PotController : CustomBehaviour
 
     public void HandleSeedPlanted()
     {
+        if (model.HasSeed) return;
         model.PlantSeed();
         GameManager.Instance?.CheckPlantReadiness();
     }
 
     public void HandleWatered()
     {
+        if (model.IsWateredToday) return;
         model.SetWatered();
         GameManager.Instance?.CheckPlantReadiness();
     }
     public void HandleInsecticideApplied()
     {
+        if (model.HasInsecticideToday) return;
         model.SetInsecticide();
+        view.ShowBugs(false);
+        GameManager.Instance?.CheckPlantReadiness();
+    }
+
+    public void HandlePruning()
+    {
+        if (model.HasPruningToday) return;
+        model.SetPruning();
+        view.ShowWeeds(false);
+        GameManager.Instance?.CheckPlantReadiness();
+    }
+
+    public void HandleMusic()
+    {
+        if (model.HasMusicToday) return;
+        model.SetMusic();
         GameManager.Instance?.CheckPlantReadiness();
     }
 

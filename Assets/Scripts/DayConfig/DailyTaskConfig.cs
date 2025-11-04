@@ -7,10 +7,14 @@ public class DailyTaskConfig : ScriptableObject
     [SerializeField] private bool requiresSeed;
     [SerializeField] private bool requiresSoil;
     [SerializeField] private bool requiresWater;
+    [SerializeField] private bool requiresMusic;
     [SerializeField] private bool requiresInsecticide;
+    [SerializeField] private bool requiresPruning;
 
     public bool RequiresSeed => requiresSeed;
     public bool RequiresSoil => requiresSoil;
     public bool RequiresWater => requiresWater;
+    public bool RequiresMusic => requiresMusic;
     public bool RequiresInsecticide => requiresInsecticide;
+    public bool RequiresPruning => requiresPruning;
 }
