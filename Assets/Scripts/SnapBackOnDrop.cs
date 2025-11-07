@@ -28,10 +28,7 @@ public class SnapBackOnDrop : CustomBehaviour
         }
     }
 
-    public void OnReleased()
-    {
-        returnCoroutine = StartCoroutine(ReturnHomeCoroutine());
-    }
+    public void OnReleased() => returnCoroutine = StartCoroutine(ReturnHomeCoroutine());
 
     private IEnumerator ReturnHomeCoroutine()
     {
