@@ -22,11 +22,11 @@ public class CrankHandle : CustomBehaviour
         grabInteractable.selectExited?.AddListener(OnRelease);
     }
 
-    private void OnDestroy()
-    {
-        grabInteractable.selectEntered?.RemoveListener(OnGrab);
-        grabInteractable.selectExited?.RemoveListener(OnRelease);
-    }
+    //private void OnDestroy()
+    //{
+    //    grabInteractable.selectEntered?.RemoveListener(OnGrab);
+    //    grabInteractable.selectExited?.RemoveListener(OnRelease);
+    //}
 
 
     public override void CustomFixedUpdate()

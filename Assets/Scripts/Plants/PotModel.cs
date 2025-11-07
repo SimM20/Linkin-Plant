@@ -1,10 +1,10 @@
 public class PotModel : CustomBehaviour
 {
-    public bool HasSeed { get; private set; }
-    public bool IsWateredToday { get; private set; }
-    public bool HasInsecticideToday { get; private set; }
-    public bool HasPruningToday { get; private set; }
-    public bool HasMusicToday { get; private set; }
+    public bool HasSeed { get; private set; } = false;
+    public bool IsWateredToday { get; private set; } = false;
+    public bool HasInsecticideToday { get; private set; } = false;
+    public bool HasPruningToday { get; private set; } = false;
+    public bool HasMusicToday { get; private set; } = false;
     public int CurrentStage { get; private set; }
     public int MaxStages { get; private set; }
     public SoilZone Soil { get; private set; }

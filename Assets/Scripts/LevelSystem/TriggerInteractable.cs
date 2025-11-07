@@ -46,10 +46,11 @@ public class TriggerInteractable : CustomBehaviour
 
         if (dayText != null)
         {
-            DayManager.AdvanceDay();
             dayText.text = $"End of day {DayManager.CurrentDay}";
             yield return StartCoroutine(FadeText(dayText, 0, 1, fadeTime));
         }
+
+        DayManager.AdvanceDay();
 
         yield return new WaitForSeconds(displayTime);
 

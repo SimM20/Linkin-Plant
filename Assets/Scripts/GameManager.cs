@@ -50,6 +50,8 @@ public class GameManager : CustomBehaviour
     {
         int newDayIndex = DayManager.CurrentDay;
 
+        Debug.LogWarning($"Current day: {newDayIndex}");
+
         if (newDayIndex >= dailyTasks.Length)
         {
             UIManager.Instance?.ShowSecondForm();
@@ -76,6 +78,9 @@ public class GameManager : CustomBehaviour
         foreach (var pot in pots)
         {
             pot.SetNewDayTask(newTask);
+            Debug.LogWarning($"New task name: {newTask.name}.\n Tasks: {newTask.RequiresSoil}" +
+                $" - {newTask.RequiresPruning} - {newTask.RequiresMusic} - {newTask.RequiresInsecticide}" +
+                $" - {newTask.RequiresWater}");
         }
     }
 
@@ -97,7 +102,7 @@ public class GameManager : CustomBehaviour
                 return;
             }
         }
-        Debug.LogWarning("Day completed");
+        Debug.LogWarning($"Day {DayManager.CurrentDay} completed");
         bed.SetReadyForSleep(true);
     }
 }

@@ -7,6 +7,7 @@ public class MusicBox : CustomBehaviour
     [SerializeField] private float happinessRadius = 5f;
     [SerializeField] private LayerMask plantLayer;
     [SerializeField] private float happinessTickRate = 1.0f;
+    [SerializeField] private ParticleSystem musicParticles;
 
     private Coroutine happinessCoroutine;
     private AudioSource musicAudioSource;
@@ -33,6 +34,7 @@ public class MusicBox : CustomBehaviour
         isMusicPlaying = true;
 
         musicAudioSource.Play();
+        musicParticles.Play();
 
         if (happinessCoroutine != null)
             StopCoroutine(happinessCoroutine);
@@ -45,6 +47,7 @@ public class MusicBox : CustomBehaviour
         isMusicPlaying = false;
 
         musicAudioSource.Stop();
+        musicParticles.Stop();
 
         if (happinessCoroutine != null)
             StopCoroutine(happinessCoroutine);

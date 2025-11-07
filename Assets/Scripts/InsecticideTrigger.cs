@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class InsecticideTrigger : CustomBehaviour
 {
-    private Insecticide insecticide;
+    [SerializeField] private Insecticide insecticide;
 
-    public override void CustomStart() => insecticide = GetComponentInParent<Insecticide>();
+    public override void CustomStart()
+    {
+        if (insecticide == null)
+            insecticide = GetComponentInParent<Insecticide>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
