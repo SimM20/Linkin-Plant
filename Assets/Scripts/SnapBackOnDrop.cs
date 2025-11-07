@@ -1,42 +1,25 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 using System.Collections;
 
 public class SnapBackOnDrop : CustomBehaviour
 {
+    [SerializeField] private Rigidbody rb;
+
     [SerializeField] private float returnSpeed = 5f;
     [SerializeField] private float returnRotationSpeed = 200f;
-    [SerializeField] private bool kinematicOnReturn = true;
 
-    private Vector3 homePosition;
-    private Quaternion homeRotation;
-    private Rigidbody rb;
-    private XRGrabInteractable grabInteractable;
-
+    [SerializeField] private Vector3 homePosition;
+    [SerializeField] private Quaternion homeRotation;
     private Coroutine returnCoroutine = null;
+
 
     public override void CustomStart()
     {
-        homePosition = transform.position;
-        homeRotation = transform.rotation;
-
-        rb = GetComponent<Rigidbody>();
-        grabInteractable = GetComponent<XRGrabInteractable>();
-
-        grabInteractable.selectEntered.AddListener(OnGrabbed);
-        grabInteractable.selectExited.AddListener(OnReleased);
+        if (rb == null)
+            rb = GetComponent<Rigidbody>();
     }
 
-    private void OnDestroy()
-    {
-        if (grabInteractable != null)
-        {
-            grabInteractable.selectEntered.RemoveListener(OnGrabbed);
-            grabInteractable.selectExited.RemoveListener(OnReleased);
-        }
-    }
-
-    private void OnGrabbed(SelectEnterEventArgs args)
+    public void OnGrabbed()
     {
         if (returnCoroutine != null)
         {
@@ -45,10 +28,9 @@ public class SnapBackOnDrop : CustomBehaviour
         }
     }
 
-    private void OnReleased(SelectExitEventArgs args)
+    public void OnReleased()
     {
-        if (returnCoroutine == null)
-            returnCoroutine = StartCoroutine(ReturnHomeCoroutine());
+        returnCoroutine = StartCoroutine(ReturnHomeCoroutine());
     }
 
     private IEnumerator ReturnHomeCoroutine()
@@ -72,11 +54,8 @@ public class SnapBackOnDrop : CustomBehaviour
             yield return null;
         }
 
-
         transform.position = homePosition;
         transform.rotation = homeRotation;
-
-        rb.isKinematic = kinematicOnReturn;
 
         returnCoroutine = null;
     }

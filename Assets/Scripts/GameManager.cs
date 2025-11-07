@@ -5,7 +5,7 @@ public class GameManager : CustomBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private GameObject[] doors;
+    [SerializeField] private DoorConfig[] doors;
 
     [SerializeField] private List<PotController> pots = new List<PotController>();
 
@@ -31,7 +31,7 @@ public class GameManager : CustomBehaviour
 
     public void Initialize() 
     {
-        foreach (GameObject door in doors) { Destroy(door); }
+        foreach (DoorConfig door in doors) { door.MoveToOpen(); }
     }
 
     public void RegisterPlant(PotController pot)
@@ -56,6 +56,7 @@ public class GameManager : CustomBehaviour
         {
             UIManager.Instance?.ShowSecondForm();
             CheckPlantReadiness();
+            foreach (DoorConfig door in doors) { door.MoveToClose(); }
             return;
         }
 
@@ -75,13 +76,7 @@ public class GameManager : CustomBehaviour
         if (dayIndex >= dailyTasks.Length) return;
 
         DailyTaskConfig newTask = dailyTasks[dayIndex];
-        foreach (var pot in pots)
-        {
-            pot.SetNewDayTask(newTask);
-            Debug.LogWarning($"New task name: {newTask.name}.\n Tasks: {newTask.RequiresSoil}" +
-                $" - {newTask.RequiresPruning} - {newTask.RequiresMusic} - {newTask.RequiresInsecticide}" +
-                $" - {newTask.RequiresWater}");
-        }
+        foreach (var pot in pots) { pot.SetNewDayTask(newTask); }
     }
 
     public void CheckPlantReadiness()
