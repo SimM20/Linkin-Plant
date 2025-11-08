@@ -16,5 +16,5 @@ MonoBehaviour:
   requiresSoil: 0
   requiresWater: 1
   requiresMusic: 0
-  requiresInsecticide: 1
+  requiresInsecticide: 0
   requiresPruning: 1
