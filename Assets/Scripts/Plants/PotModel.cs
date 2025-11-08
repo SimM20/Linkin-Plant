@@ -9,7 +9,7 @@ public class PotModel : CustomBehaviour
     public int MaxStages { get; private set; }
     public SoilZone Soil { get; private set; }
 
-    public DailyTaskConfig currentTask;
+    private DailyTaskConfig currentTask;
 
     public void Initialize(int maxStages, SoilZone soilZone)
     {

@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 6948110487197086213}
   - component: {fileID: 4671265255220952518}
   - component: {fileID: 636476550866497352}
+  - component: {fileID: 6292490582376459075}
+  - component: {fileID: 4123326148381822485}
   m_Layer: 0
-  m_Name: Yuyos
+  m_Name: Weed_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,6 +87,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6292490582376459075
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866181322033461581}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.28702638, y: 0.6202439, z: 0.30916786}
+  m_Center: {x: 0.042986766, y: 0.19356702, z: 0.012801835}
+--- !u!114 &4123326148381822485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866181322033461581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3acf44789083574e822a13c79142fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4703622199048208706
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,13 +129,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2431099119169555939}
+  - component: {fileID: 6903723301989584646}
   m_Layer: 0
-  m_Name: AllYuyos
+  m_Name: Weeds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2431099119169555939
 Transform:
   m_ObjectHideFlags: 0
@@ -122,6 +158,26 @@ Transform:
   - {fileID: 9105830612039528734}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6903723301989584646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4703622199048208706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f37eac96164bbb4449f1330ff16ae1d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potController: {fileID: 0}
+  _weeds:
+  - {fileID: 5003412632482366419}
+  - {fileID: 7359406218638710074}
+  - {fileID: 1572468550690728789}
+  - {fileID: 3976304365777440819}
+  - {fileID: 4123326148381822485}
+  - {fileID: 535771445979387860}
 --- !u!1 &5050006052178088750
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,8 +189,10 @@ GameObject:
   - component: {fileID: 6026199487906456003}
   - component: {fileID: 7059719470591158982}
   - component: {fileID: 279980038120397274}
+  - component: {fileID: 4036253057931493346}
+  - component: {fileID: 5003412632482366419}
   m_Layer: 0
-  m_Name: Yuyos
+  m_Name: Weed_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,6 +265,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4036253057931493346
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050006052178088750}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.28702626, y: 0.6202439, z: 0.30916777}
+  m_Center: {x: 0.04297912, y: 0.19356714, z: 0.012805645}
+--- !u!114 &5003412632482366419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050006052178088750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3acf44789083574e822a13c79142fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5888957562016703128
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,8 +309,10 @@ GameObject:
   - component: {fileID: 5517290198932201153}
   - component: {fileID: 2414706679385516964}
   - component: {fileID: 2562510649248063613}
+  - component: {fileID: 5108378155584598773}
+  - component: {fileID: 1572468550690728789}
   m_Layer: 0
-  m_Name: Yuyos
+  m_Name: Weed_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,6 +385,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5108378155584598773
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5888957562016703128}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.28702632, y: 0.62024385, z: 0.3091678}
+  m_Center: {x: 0.042982943, y: 0.19356707, z: 0.01279611}
+--- !u!114 &1572468550690728789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5888957562016703128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3acf44789083574e822a13c79142fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6109112746756822376
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,8 +429,10 @@ GameObject:
   - component: {fileID: 7905640392143924585}
   - component: {fileID: 1474600941866203469}
   - component: {fileID: 3736942020585858880}
+  - component: {fileID: 774880142655536119}
+  - component: {fileID: 7359406218638710074}
   m_Layer: 0
-  m_Name: Yuyos
+  m_Name: Weed_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -377,6 +505,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &774880142655536119
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6109112746756822376}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.28702623, y: 0.6202439, z: 0.3091677}
+  m_Center: {x: 0.042979117, y: 0.19356714, z: 0.012798015}
+--- !u!114 &7359406218638710074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6109112746756822376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3acf44789083574e822a13c79142fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6851470005572871682
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,8 +549,10 @@ GameObject:
   - component: {fileID: 9105830612039528734}
   - component: {fileID: 1324905245586189365}
   - component: {fileID: 1270451571066661202}
+  - component: {fileID: 5992429130368617374}
+  - component: {fileID: 535771445979387860}
   m_Layer: 0
-  m_Name: Yuyos
+  m_Name: Weed_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -462,6 +625,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5992429130368617374
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851470005572871682}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.28702623, y: 0.6202439, z: 0.3091677}
+  m_Center: {x: 0.042982932, y: 0.19356702, z: 0.012805644}
+--- !u!114 &535771445979387860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851470005572871682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3acf44789083574e822a13c79142fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7076313435139382842
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,8 +669,10 @@ GameObject:
   - component: {fileID: 1293346173129829622}
   - component: {fileID: 4006496401933371591}
   - component: {fileID: 716471819443180166}
+  - component: {fileID: 3041252421071492831}
+  - component: {fileID: 3976304365777440819}
   m_Layer: 0
-  m_Name: Yuyos
+  m_Name: Weed_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,3 +745,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3041252421071492831
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7076313435139382842}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.28702623, y: 0.62024385, z: 0.3091677}
+  m_Center: {x: 0.042979594, y: 0.19356701, z: 0.012790385}
+--- !u!114 &3976304365777440819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7076313435139382842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3acf44789083574e822a13c79142fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
