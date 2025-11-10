@@ -66,7 +66,7 @@ public class GameAnalyticsHandler
     {
         if (!initialized)
         {
-            Debug.LogWarning("[Analytics] Analytics Service is not initialized yet. Call Initialize() first.");
+            Debug.LogError("[Analytics] Analytics Service is not initialized yet. Call Initialize() first.");
             return false;
         }
 
