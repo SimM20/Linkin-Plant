@@ -78326,6 +78326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstForm: {fileID: 4408180868783769768, guid: ff9b69803f43f3f419b67fde2360d1b6, type: 3}
   secondForm: {fileID: 4408180868783769768, guid: f0dc752095e88a444b8b8677a1496a3f, type: 3}
+  endText: {fileID: 0}
   mainPanel: {fileID: 1243250687}
 --- !u!4 &1542149668
 Transform:
@@ -105720,7 +105721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3067815902708016271
 Transform:
   m_ObjectHideFlags: 0

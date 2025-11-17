@@ -9,12 +9,14 @@ public class UIManager : CustomBehaviour
     [Header("Prefab References")]
     [SerializeField] private GameObject firstForm;
     [SerializeField] private GameObject secondForm;
+    [SerializeField] private GameObject endText;
 
     [Header("UI References")]
     [SerializeField] private GameObject mainPanel;
 
     private GameObject firstFormInstance;
     private GameObject secondFormInstance;
+    private GameObject endTextInstance;
 
     public override void CustomStart()
     {
@@ -48,5 +50,13 @@ public class UIManager : CustomBehaviour
     {
         if (secondFormInstance != null)
             secondFormInstance.SetActive(false);
+    }
+
+    public void HandleSecondForm()
+    {
+        if (secondFormInstance != null)
+            secondFormInstance.SetActive(false);
+        if (endTextInstance == null) 
+            endTextInstance = Instantiate(endText, mainPanel.transform);
     }
 }
