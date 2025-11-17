@@ -7,6 +7,7 @@ public class TriggerInteractable : CustomBehaviour
     [Header("Referencias")]
     [SerializeField] private Canvas dayCanvas;
     [SerializeField] private TextMeshProUGUI dayText;
+    [SerializeField] private FadeEffect fade;
 
     [Header("Configuración")]
     [SerializeField] private float displayTime = 3f; 
@@ -33,7 +34,11 @@ public class TriggerInteractable : CustomBehaviour
 
         if (other.GetComponent<PlayerInteraction>() == null) return;
 
-        if (isReadyForSleep) StartCoroutine(ShowDaySequence());
+        if (isReadyForSleep)
+        {
+            StartCoroutine(ShowDaySequence());
+            fade.StartDayTransition();
+        }
     }
 
     private IEnumerator ShowDaySequence()

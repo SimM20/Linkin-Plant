@@ -5,6 +5,9 @@ public class Insecticide : CustomBehaviour
     [SerializeField] private ParticleSystem particuleSpray;
     [SerializeField] private GameObject sprayTriggerObject;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+
     private bool isSpraying = false;
     private PotController currentPot = null;
 
@@ -17,14 +20,16 @@ public class Insecticide : CustomBehaviour
     public void Shoot()
     {
         isSpraying = true;
-        particuleSpray.Play();
+        particuleSpray?.Play();
+        audioSource?.Play();
         sprayTriggerObject?.SetActive(true);
     }
 
     public void Stop()
     {
         isSpraying = false;
-        particuleSpray.Stop();
+        particuleSpray?.Stop();
+        audioSource?.Stop();
         sprayTriggerObject?.SetActive(false);
     }
 
