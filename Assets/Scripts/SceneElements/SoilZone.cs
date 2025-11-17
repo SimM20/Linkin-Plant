@@ -1,6 +1,5 @@
 using UnityEngine;
 using System;
-using OpenCover.Framework.Model;
 
 public class SoilZone : CustomBehaviour
 {
