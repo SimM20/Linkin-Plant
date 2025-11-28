@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1464366143575357263}
   - component: {fileID: 2851125899424254238}
   - component: {fileID: 38928386622144724}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Pumpkin_Italian_01_S
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 7641867633779729389}
   - component: {fileID: 7452126505001903459}
   - component: {fileID: 5834682923370565224}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Pumpkin_Italian_01_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 3342630472452848137}
   - component: {fileID: 3310372493306782878}
   - component: {fileID: 5620610837606270305}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Pumpkin_Italian_01_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}

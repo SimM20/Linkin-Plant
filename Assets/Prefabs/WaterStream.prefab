@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 269008120}
   - component: {fileID: 269008122}
   - component: {fileID: 269008121}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4792,7 +4792,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a861b127c67e5da42a842f0b0bc533de, type: 2}
-  - {fileID: 2100000, guid: a861b127c67e5da42a842f0b0bc533de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4856,7 +4855,7 @@ GameObject:
   - component: {fileID: 5238570228697279503}
   - component: {fileID: 5238570228697279500}
   - component: {fileID: 1351666661950907476}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WaterStream
   m_TagString: Untagged
   m_Icon: {fileID: 0}

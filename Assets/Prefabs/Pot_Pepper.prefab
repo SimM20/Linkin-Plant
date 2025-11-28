@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 417018260982618137}
   - component: {fileID: 6325822433033386634}
   - component: {fileID: 8826920738275189979}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Plant_Bush_01_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +733,7 @@ GameObject:
   - component: {fileID: 6643470156718027450}
   - component: {fileID: 848777366823398373}
   - component: {fileID: 3090713950184475257}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Plant_Bush_02_S
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -855,7 +855,7 @@ GameObject:
   - component: {fileID: 2733533119418695689}
   - component: {fileID: 6923343517564070941}
   - component: {fileID: 7510903368921344561}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Plant_Bush_01_Pepper
   m_TagString: Untagged
   m_Icon: {fileID: 0}

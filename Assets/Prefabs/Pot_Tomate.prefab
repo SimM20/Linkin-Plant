@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 1423988420554206377}
   - component: {fileID: 4250733760807695403}
   - component: {fileID: 3016092560253460773}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Hemp_01_S
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 8139550622129816618}
   - component: {fileID: 6021782391501309435}
   - component: {fileID: 7890494805408420981}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Plant_Bush_02_Tomato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -828,7 +828,7 @@ GameObject:
   - component: {fileID: 6670870993986790994}
   - component: {fileID: 5201598231689395594}
   - component: {fileID: 2561665599672963607}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Plant_Bush_02_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}

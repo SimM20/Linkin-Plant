@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 2757736393798816949}
   - component: {fileID: 340621956729291061}
   - component: {fileID: 2167948828659646667}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Plant_Ground_03_S
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 6513102702475982770}
   - component: {fileID: 8798617711183694767}
   - component: {fileID: 6586405831697834826}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Plant_Potato_01_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 5988402152905104707}
   - component: {fileID: 369160064615037920}
   - component: {fileID: 1425968127461071924}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Plant_Potato_01_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
