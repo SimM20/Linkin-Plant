@@ -17,6 +17,8 @@ public class SnapBackOnDrop : CustomBehaviour
     {
         if (rb == null)
             rb = GetComponent<Rigidbody>();
+
+
     }
 
     public void OnGrabbed()
