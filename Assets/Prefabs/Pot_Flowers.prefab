@@ -547,6 +547,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dddab125340f874194e7d32283518d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plantPoint: {fileID: 4731869406168096357}
+--- !u!1 &5510704571847521132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4731869406168096357}
+  m_Layer: 0
+  m_Name: SeedPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4731869406168096357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5510704571847521132}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6789924244366308275}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5594008772472109601
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,6 +1005,7 @@ Transform:
   m_Children:
   - {fileID: 907399597709450580}
   - {fileID: 3391626413406604495}
+  - {fileID: 4731869406168096357}
   - {fileID: 4986580103939603820}
   - {fileID: 6962970710668446255}
   m_Father: {fileID: 0}

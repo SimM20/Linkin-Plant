@@ -43172,6 +43172,14 @@ PrefabInstance:
       propertyPath: m_ClearFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6731244632323976375, guid: 62de45d667f94594db5c6e05b8a8be87, type: 3}
+      propertyPath: m_SlopeLimit
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731244632323976375, guid: 62de45d667f94594db5c6e05b8a8be87, type: 3}
+      propertyPath: m_StepOffset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7573758433626589605, guid: 62de45d667f94594db5c6e05b8a8be87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.89
