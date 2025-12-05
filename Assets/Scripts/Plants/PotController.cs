@@ -11,6 +11,7 @@ public class PotController : CustomBehaviour
     [Header("External references")]
     [SerializeField] private SoilZone soilZone;
     [SerializeField] private SeedDetector seedDetector;
+    [SerializeField] private AudioSource audioSource;
 
     public override void CustomStart()
     {
@@ -79,6 +80,7 @@ public class PotController : CustomBehaviour
         if (model.IsWateredToday) return;
         model.SetWatered();
         GameManager.Instance?.CheckPlantReadiness();
+        audioSource.Play();
     }
     public void HandleInsecticideApplied()
     {
