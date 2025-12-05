@@ -3493,7 +3493,7 @@ MonoBehaviour:
   rb: {fileID: 176369010}
   returnSpeed: 5
   returnRotationSpeed: 200
-  homePosition: {x: 46.363, y: 1.238, z: 5.327574}
+  homePosition: {x: 45.6, y: 1.238, z: 5.327574}
   homeRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1001 &176735236
 PrefabInstance:
@@ -14926,7 +14926,7 @@ MonoBehaviour:
   returnSpeed: 5
   returnRotationSpeed: 200
   homePosition: {x: 46.567, y: 1.091, z: 5.113722}
-  homeRotation: {x: 0, y: 0, z: 0, w: 1}
+  homeRotation: {x: -0.122766614, y: -0.69648445, z: -0.696244, w: 0.12280901}
 --- !u!1001 &701431580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49681,6 +49681,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6441175361089539372, guid: e9e429f53d856b14d93044a392b7f5af, type: 3}
+      propertyPath: potController
+      value: 
+      objectReference: {fileID: 222505912}
+    - target: {fileID: 6441175361089539372, guid: e9e429f53d856b14d93044a392b7f5af, type: 3}
       propertyPath: _weeds.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -49966,6 +49970,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2712634649908584014, guid: 77ffaa1f56e6590468ba63ca8deb4dba, type: 3}
+      propertyPath: potController
+      value: 
+      objectReference: {fileID: 1239761465}
+    - target: {fileID: 2712634649908584014, guid: 77ffaa1f56e6590468ba63ca8deb4dba, type: 3}
       propertyPath: _weeds.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -50003,7 +50011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8612731832971273493, guid: 77ffaa1f56e6590468ba63ca8deb4dba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.306
+      value: 0.344
       objectReference: {fileID: 0}
     - target: {fileID: 8612731832971273493, guid: 77ffaa1f56e6590468ba63ca8deb4dba, type: 3}
       propertyPath: m_LocalPosition.z
@@ -50111,6 +50119,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 278561499104361547, guid: c4d9a5c3cc0863b40888786f93b11cc2, type: 3}
+      propertyPath: potController
+      value: 
+      objectReference: {fileID: 374263363}
     - target: {fileID: 278561499104361547, guid: c4d9a5c3cc0863b40888786f93b11cc2, type: 3}
       propertyPath: _weeds.Array.size
       value: 6
